@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { toast } from "sonner";
 
 type Inputs = {
   name: string;
@@ -35,14 +36,15 @@ export default function ContactForm() {
       });
 
       if (response.ok) {
+        toast.success("Your message was sent successfully!");
         setSubmitSuccess(true);
         reset();
       } else {
         throw new Error("Form submission failed");
       }
-    } catch (error) {
-      console.error("Error submitting form:", error);
-      alert("There was an error submitting the form. Please try again.");
+    } catch (err) {
+      toast.error("There was an error submitting the form. Please try again.");
+      console.error("Error submitting form:", err);
     } finally {
       setIsSubmitting(false);
     }
@@ -53,7 +55,7 @@ export default function ContactForm() {
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-white">Contact Me</h2>
         {submitSuccess ? (
-          <div className="text-green-500 mb-4">
+          <div className="bg-green-200 rounded-md py-4 text-center text-black mb-4">
             Thank you for your message! I will get back to you soon.
           </div>
         ) : (
@@ -71,6 +73,11 @@ export default function ContactForm() {
                 <span className="text-red-500">{errors.name.message}</span>
               )}
             </div>
+            <input
+              type="hidden"
+              name="_autoresponse"
+              value="Thank you for your message! I will get back to you soon."
+            />
             <div>
               <label htmlFor="email" className="block mb-2 text-white">
                 Email
@@ -104,7 +111,7 @@ export default function ContactForm() {
               className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-blue-300"
               disabled={isSubmitting}
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Sending. Please wait..." : "Send Message"}
             </button>
           </form>
         )}
