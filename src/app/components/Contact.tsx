@@ -54,7 +54,7 @@ export default function ContactForm() {
         <h2 className="text-3xl font-bold mb-8 text-white">Contact Me</h2>
         {submitSuccess ? (
           <div className="text-green-500 mb-4">
-            Thank you for your message! I'll get back to you soon.
+            Thank you for your message! I will get back to you soon.
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
