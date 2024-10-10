@@ -2,6 +2,7 @@
 
 import { ParallaxProvider } from "react-scroll-parallax";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 export default function RootLayout({
   children,
@@ -11,7 +12,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <ParallaxProvider>
-        <body>{children}</body>
+        <body>
+          <Toaster />
+          {children}
+        </body>
       </ParallaxProvider>
     </html>
   );
