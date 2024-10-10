@@ -1,67 +1,101 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
+import { BiChevronDown, BiChevronRight } from "react-icons/bi";
 
-const skills = [
-  "React",
-  "Next.js",
-  "TypeScript",
-  "Node.js",
-  "GraphQL",
-  "Tailwind CSS",
-];
+const skillsTree = {
+  "Front End": {
+    skills: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "JavaScript",
+      "HTML",
+      "CSS",
+      "Tailwind CSS",
+      "shadcn/ui",
+    ],
+    inProgress: [],
+  },
+  "Back End": {
+    skills: ["Discord.js"],
+    inProgress: ["PostgreSQL", "Drizzle ORM"],
+  },
+  DevOps: {
+    skills: ["Git", "GitHub", "GitHub Actions", "Figma", "Trello"],
+    inProgress: ["Docker"],
+  },
+  "Content Management": {
+    skills: ["Sanity", "Wordpress"],
+    inProgress: [],
+  },
+};
+
+type SkillCategoryProps = {
+  category: string;
+  skills: string[];
+  inProgress: string[];
+};
+
+const SkillCategory = ({
+  category,
+  skills,
+  inProgress,
+}: SkillCategoryProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="mb-4">
+      <button
+        className="flex items-center text-lg font-semibold mb-2"
+        onClick={() => setIsOpen(!isOpen)}
+      >
+        {isOpen ? <BiChevronDown size={20} /> : <BiChevronRight size={20} />}
+        {category}
+      </button>
+      {isOpen && (
+        <div className="ml-6">
+          <h4 className="font-medium mb-2">Skills:</h4>
+          <ul className="list-disc list-inside mb-2">
+            {skills.map((skill, index) => (
+              <li key={index} className="ml-4">
+                {skill}
+              </li>
+            ))}
+          </ul>
+          {inProgress.length > 0 && (
+            <>
+              <h4 className="font-medium mb-2">In Progress:</h4>
+              <ul className="list-disc list-inside">
+                {inProgress.map((skill, index) => (
+                  <li key={index} className="ml-4 text-gray-400">
+                    {skill}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+};
 
 export default function Skills() {
-  const [visibleSkills, setVisibleSkills] = useState<number[]>([]);
-  const skillRefs = useRef<(HTMLLIElement | null)[]>([]);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const skillIndex = Number(
-              entry.target.getAttribute("data-skill-index")
-            );
-            setVisibleSkills((prev) => [...prev, skillIndex]);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const currentRefs = skillRefs.current.slice();
-
-    currentRefs.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
-
-    return () => {
-      currentRefs.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
-    };
-  }, []);
-
   return (
     <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8">My Skills</h2>
-        <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {skills.map((skill, index) => (
-            <li
-              key={index}
-              ref={(el) => {
-                skillRefs.current[index] = el;
-              }}
-              data-skill-index={index}
-              className={`bg-gray-700 p-4 rounded-lg text-center transition-opacity duration-1000 ${
-                visibleSkills.includes(index) ? "opacity-100" : "opacity-0"
-              }`}
-            ></li>
-          ))}
-        </ul>
+        {Object.entries(skillsTree).map(
+          ([category, { skills, inProgress }]) => (
+            <SkillCategory
+              key={category}
+              category={category}
+              skills={skills}
+              inProgress={inProgress}
+            />
+          )
+        )}
       </div>
     </section>
   );

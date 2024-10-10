@@ -14,10 +14,8 @@ export default function Hero() {
       setScrollY(window.scrollY);
     };
 
-    // Add scroll event listener
     window.addEventListener("scroll", handleScroll);
 
-    // Remove event listener on cleanup
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -33,7 +31,7 @@ export default function Hero() {
         <div className="text-center">
           <h1
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4"
-            style={parallaxStyle(0.5)}
+            style={parallaxStyle(-0.5)}
           >
             <FadeInText
               text="Hi, My name is Hans"
@@ -43,20 +41,20 @@ export default function Hero() {
           </h1>
           <div
             className="text-xl md:text-2xl text-white px-2"
-            style={parallaxStyle(0.3)}
+            style={parallaxStyle(-0.3)}
           >
             <FadeInText
-              text="I'm a Front-End and web developer and I love to bring ideas to life."
+              text="I'm a Front-End and web developer and I love to bring ideas to life"
               delay={4000}
               fadeDuration={300}
             />
           </div>
           <div
             className="text-xl md:text-2xl text-white p-2"
-            style={parallaxStyle(0.1)}
+            style={parallaxStyle(-0.2)}
           >
             <FadeInText
-              text="Feel free to browse my portfolio and get in touch with me."
+              text="Feel free to browse my portfolio"
               delay={6500}
               fadeDuration={300}
             />
