@@ -51,7 +51,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-20 px-4 bg-gray-800">
+    <section className="py-20 px-4 bg-primary">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-white">Contact Me</h2>
         {submitSuccess ? (
@@ -67,7 +67,7 @@ export default function ContactForm() {
               <input
                 id="name"
                 {...register("name", { required: "Name is required" })}
-                className="w-full p-2 bg-gray-700 rounded text-white"
+                className="w-full p-2 bg-secondary rounded text-primary"
               />
               {errors.name && (
                 <span className="text-red-500">{errors.name.message}</span>
@@ -86,7 +86,7 @@ export default function ContactForm() {
                 id="email"
                 type="email"
                 {...register("email", { required: "Email is required" })}
-                className="w-full p-2 bg-gray-700 rounded text-white"
+                className="w-full p-2 bg-secondary rounded text-primary"
               />
               {errors.email && (
                 <span className="text-red-500">{errors.email.message}</span>
@@ -99,7 +99,7 @@ export default function ContactForm() {
               <textarea
                 id="message"
                 {...register("message", { required: "Message is required" })}
-                className="w-full p-2 bg-gray-700 rounded text-white"
+                className="w-full p-2 bg-secondary rounded text-primary"
                 rows={4}
               />
               {errors.message && (
@@ -108,7 +108,7 @@ export default function ContactForm() {
             </div>
             <button
               type="submit"
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 disabled:bg-blue-300"
+              className="bg-secondary text-primary py-2 px-4 rounded hover:bg-primary hover:text-secondary hover:shadow-md hover:shadow-secondary disabled:bg-gray-300"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Sending. Please wait..." : "Send Message"}
