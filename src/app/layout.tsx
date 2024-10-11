@@ -1,6 +1,5 @@
 "use client";
 
-import { ParallaxProvider } from "react-scroll-parallax";
 import "./globals.css";
 import { Toaster } from "sonner";
 
@@ -11,12 +10,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <ParallaxProvider>
-        <body>
-          <Toaster />
-          {children}
-        </body>
-      </ParallaxProvider>
+      <body>
+        {/* <SpotlightCursor /> */}
+        <Toaster />
+        {children}
+      </body>
     </html>
   );
 }

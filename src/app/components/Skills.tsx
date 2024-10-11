@@ -13,6 +13,7 @@ const skillsTree = {
       "HTML",
       "CSS",
       "Tailwind CSS",
+      "Bootstrap",
       "shadcn/ui",
     ],
     inProgress: [],
@@ -83,7 +84,7 @@ const SkillCategory = ({
 
 export default function Skills() {
   return (
-    <section className="py-20 px-4">
+    <section className="py-20 px-4 bg-secondary text-primary">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8">My Skills</h2>
         {Object.entries(skillsTree).map(

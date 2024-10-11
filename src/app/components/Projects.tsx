@@ -81,7 +81,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="py-20 px-4 bg-gray-800">
+    <section className="py-20 px-4 bg-primary">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-3xl font-bold mb-8 text-white">Projects</h2>
         <ProjectTree projects={projects} />
@@ -129,7 +129,7 @@ function ProjectItem({ project }: ProjectItemProps) {
         <span className="font-semibold">{project.title}</span>
       </div>
       {isOpen && (
-        <div className="ml-6 mt-2 bg-gray-700 p-4 rounded-md space-y-2">
+        <div className="ml-6 mt-2 bg-secondary text-primary p-4 rounded-md space-y-2">
           <p className="mb-2">{project.description}</p>
           {project.link !== "" ? (
             <Link
