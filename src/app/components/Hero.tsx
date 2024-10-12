@@ -30,7 +30,7 @@ export default function Hero() {
           </h1>
           <div className="text-xl md:text-2xl text-white px-2">
             <FadeInText
-              text="I'm a Front-End and web developer and I love to bring ideas to life"
+              text="I'm a Front-End and web developer"
               delay={4000}
               fadeDuration={300}
             />

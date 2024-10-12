@@ -4,12 +4,15 @@ export default function About() {
       <div className={`max-w-4xl mx-auto transition-opacity duration-1000`}>
         <h2 className="text-3xl font-bold mb-8">About Me</h2>
         <p className="text-lg mb-4">
-          I am a passionate web developer with expertise in React, Next.js, and
-          modern web technologies.
+          I am a web developer who loves working with React, Next.js, and all
+          the latest web tech. Keeping things modern, fun, simple, and
+          functional.
         </p>
         <p className="text-lg">
-          My goal is to create beautiful, performant, and user-friendly web
-          applications that solve real-world problems.
+          After years in customer service, I have been trained to have a sharp
+          eye for keeping things simple and efficient. Now, I focus on creating
+          web apps that are sleek, effective, and actually make life easier. No
+          fuss, just smooth solutions!
         </p>
       </div>
     </section>
