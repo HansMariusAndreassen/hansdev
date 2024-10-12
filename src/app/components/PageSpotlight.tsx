@@ -1,14 +1,21 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { MdOutlineFlashlightOff, MdOutlineFlashlightOn } from "react-icons/md";
 
 const PageSpotlight = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isTouchDevice, setIsTouchDevice] = useState(false);
 
   useEffect(() => {
+    // Check if the device supports touch events
+    setIsTouchDevice("ontouchstart" in window || navigator.maxTouchPoints > 0);
+
     const handleMouseMove = (event: MouseEvent) => {
-      setPosition({ x: event.clientX, y: event.clientY });
+      if (!isTouchDevice) {
+        setPosition({ x: event.clientX, y: event.clientY });
+      }
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -16,9 +23,15 @@ const PageSpotlight = () => {
     return () => {
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [isTouchDevice]);
 
   const toggleDarkMode = () => {
+    if (isTouchDevice && !isDarkMode) {
+      // Set the initial position to the center of the screen on touch devices
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      setPosition({ x: centerX, y: centerY });
+    }
     setIsDarkMode(!isDarkMode);
   };
 
@@ -38,6 +51,7 @@ const PageSpotlight = () => {
                rgba(1, 1, 1, 0.0) 0%)`,
         }}
       />
+
       <button
         onClick={toggleDarkMode}
         className={`fixed bottom-5 right-5 z-50 p-2 rounded-full shadow-lg
@@ -48,8 +62,20 @@ const PageSpotlight = () => {
                     }`}
         aria-label="Toggle dark mode"
       >
-        {isDarkMode ? "☀️" : "🌙"}
+        {isDarkMode ? (
+          <MdOutlineFlashlightOff color="white" size={28} />
+        ) : (
+          <MdOutlineFlashlightOn color="white" size={28} />
+        )}
       </button>
+
+      <style jsx global>{`
+        body {
+          cursor: ${isDarkMode && !isTouchDevice
+            ? `url('/flashlight_small.png'), auto`
+            : "auto"};
+        }
+      `}</style>
     </>
   );
 };
