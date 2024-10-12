@@ -9,7 +9,7 @@ import Skills from "./components/Skills";
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
+    <main className="bg-black text-white relative">
       <PageSpotlight />
       <Hero />
       <div className="relative z-10">

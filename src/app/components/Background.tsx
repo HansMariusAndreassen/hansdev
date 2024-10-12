@@ -57,14 +57,25 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ imageUrls }) => {
   return (
     <div
       style={{
-        position: "absolute",
+        position: "fixed",
         top: 0,
         left: 0,
         width: "100%",
         height: "100%",
+        zIndex: -1,
+        pointerEvents: "none",
       }}
     >
-      <Canvas camera={{ position: new Vector3(0, 0, 5), fov: 75 }}>
+      <Canvas
+        camera={{ position: new Vector3(0, 0, 5), fov: 75 }}
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          width: "100%",
+          height: "100%",
+        }}
+      >
         <ambientLight intensity={0.6} />
         <pointLight position={[0, 0, 0]} intensity={1} color={0x9d4edd} />
         <directionalLight position={[-1, 4, 6]} intensity={3} />

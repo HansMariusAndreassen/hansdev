@@ -7,18 +7,18 @@ import FadeInText from "./FadeInText";
 const ThreeBackground = dynamic(() => import("./Background"), { ssr: false });
 
 export default function Hero() {
+  const imgs = [
+    "/portrait.jpeg",
+    "/avatar.jpg",
+    "homeOffice.jpeg",
+    "/homeOffice2.jpeg",
+    "max.jpg",
+    "pondering.jpeg",
+  ];
+
   return (
     <div className="h-screen sticky top-0 overflow-hidden">
-      <ThreeBackground
-        imageUrls={[
-          "/portrait.jpeg",
-          "/avatar.jpg",
-          "homeOffice.jpeg",
-          "/homeOffice2.jpeg",
-          "max.jpg",
-          "pondering.jpeg",
-        ]}
-      />
+      <ThreeBackground imageUrls={imgs} />
       <div className="absolute inset-0 flex items-center justify-center bg-opacity-50">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
