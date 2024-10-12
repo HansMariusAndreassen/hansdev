@@ -3,12 +3,12 @@ import "./globals.css";
 import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
-  title: "hansmarius.dev",
-  description: "A portfolio of Hans Marius Andreassen",
+  title: "Hans Marius Andreassen",
+  description: "A developers portfolio",
   metadataBase: new URL("https://hansmarius.dev"),
   openGraph: {
-    title: "hansmarius.dev",
-    description: "A portfolio of Hans Marius Andreassen",
+    title: "Hans Marius Andreassen",
+    description: "A developers portfolio",
     url: "https://hansmarius.dev",
     siteName: "hansmarius.dev",
     images: [
