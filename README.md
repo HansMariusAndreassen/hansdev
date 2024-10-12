@@ -1,3 +1,5 @@
+![Vercel Deploy](https://deploy-badge.vercel.app/vercel/hansdev-lac?style=plastic&name=hansmarius.dev)
+
 # Hans Marius Andreassen - Portfolio
 
 Welcome to my portfolio website repository! This site showcases my skills, projects, and experience as a front-end developer.
