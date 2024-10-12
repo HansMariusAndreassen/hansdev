@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hans Marius Andreassen - Portfolio
 
-## Getting Started
+Welcome to my portfolio website repository! This site showcases my skills, projects, and experience as a front-end developer.
 
-First, run the development server:
+## 🌐 Live Site
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Visit my portfolio](https://hansmarius.dev)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Technologies Used
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Next.js 13+](https://nextjs.org/) - React framework with App Router
+- [React](https://reactjs.org/) - JavaScript library for building user interfaces
+- [TypeScript](https://www.typescriptlang.org/) - Typed superset of JavaScript
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework
+- [Three.js](https://threejs.org/) - 3D library for JavaScript
+- [React Three Fiber](https://docs.pmnd.rs/react-three-fiber/) - React renderer for Three.js
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🚀 Features
 
-## Learn More
+- Modern Next.js 13+ App Router for improved performance and SEO
+- Responsive design
+- 3D background using Three.js
+- Project showcase
+- Skills section
+- Contact form
+- Dark mode
 
-To learn more about Next.js, take a look at the following resources:
+## 📦 Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+To run this project locally:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone the repository:
+   ```
+   git clone https://github.com/HansMariusAndreassen/hansdev.git
+   ```
+2. Navigate to the project directory:
+   ```
+   cd portfolio
+   ```
+3. Install dependencies:
+   ```
+   npm install
+   ```
+4. Run the development server:
+   ```
+   npm run dev
+   ```
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the site.
 
-## Deploy on Vercel
+## 📂 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `app/` - Next.js 13+ App Router pages and layouts
+  - `layout.tsx` - Root layout component
+  - `page.tsx` - Home page component
+  - `components/` - React components used across the app
+- `public/` - Static assets
+- `styles/` - Global styles (if any outside of Tailwind)
+- `lib/` - Utility functions and custom hooks
+- `types/` - TypeScript type definitions
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+While this is a personal portfolio, I'm open to suggestions and improvements. Feel free to open an issue or submit a pull request.
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 📞 Contact
+
+- Website: [hansmarius.dev](https://hansmarius.dev)
+- LinkedIn: [Your LinkedIn Profile](https://www.linkedin.com/in/hans-marius-andreassen/)
+- Email: your.email@example.com
+
+---
+
+Thank you for visiting my portfolio repository! I'm always looking to improve and expand my skills, so feel free to reach out with any questions or opportunities.
