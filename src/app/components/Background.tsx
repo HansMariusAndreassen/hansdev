@@ -1,10 +1,10 @@
 "use client";
 
-import React, { useRef, useMemo } from "react";
-import { Canvas, useFrame, useLoader } from "@react-three/fiber";
+import React, { useRef, useMemo, useEffect } from "react";
+import { Canvas, useFrame, useLoader, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { OrbitControls } from "@react-three/drei";
-import { Mesh, Vector3 } from "three";
+import { Mesh, Vector3, DirectionalLight } from "three";
 
 interface ThreeBackgroundProps {
   imageUrls: string[];
@@ -48,6 +48,25 @@ const RotatingBox: React.FC<{ imageUrls: string[] }> = ({ imageUrls }) => {
   );
 };
 
+const CameraLight: React.FC = () => {
+  const lightRef = useRef<DirectionalLight>(null);
+  const { camera } = useThree();
+
+  useEffect(() => {
+    if (lightRef.current) {
+      lightRef.current.target = camera;
+    }
+  }, [camera]);
+
+  useFrame(() => {
+    if (lightRef.current) {
+      lightRef.current.position.copy(camera.position);
+    }
+  });
+
+  return <directionalLight ref={lightRef} intensity={1} />;
+};
+
 const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ imageUrls }) => {
   if (imageUrls.length < 6) {
     console.error("You need 6 image URLs to cover each face of the box.");
@@ -76,9 +95,8 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ imageUrls }) => {
           height: "100%",
         }}
       >
-        <ambientLight intensity={0.6} />
-        <pointLight position={[0, 0, 0]} intensity={1} color={0x9d4edd} />
-        <directionalLight position={[-1, 4, 6]} intensity={3} />
+        <ambientLight intensity={2} />
+        <CameraLight />
         <RotatingBox imageUrls={imageUrls} />
         <OrbitControls enableZoom={false} enablePan={true} />
       </Canvas>
