@@ -98,7 +98,7 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ imageUrls }) => {
         <ambientLight intensity={2} />
         <CameraLight />
         <RotatingBox imageUrls={imageUrls} />
-        <OrbitControls enableZoom={false} enablePan={true} />
+        <OrbitControls enableZoom={false} enablePan={window.innerWidth > 768} />
       </Canvas>
     </div>
   );
