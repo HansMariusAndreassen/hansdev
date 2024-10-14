@@ -2,7 +2,15 @@
 
 import React, { useState } from "react";
 import { BiChevronDown, BiChevronRight } from "react-icons/bi";
-import { FaCode, FaDatabase, FaTools, FaPencilAlt } from "react-icons/fa";
+import {
+  FaCode,
+  FaDatabase,
+  FaTools,
+  FaPencilAlt,
+  FaProjectDiagram,
+  FaFirefoxBrowser,
+} from "react-icons/fa";
+import { IoAccessibility } from "react-icons/io5";
 
 const skillsTree = {
   "Front End": {
@@ -12,28 +20,55 @@ const skillsTree = {
       "Next.js",
       "TypeScript",
       "JavaScript",
-      "HTML",
-      "CSS",
+      "HTML5",
+      "CSS3",
       "Tailwind CSS",
       "Bootstrap",
       "shadcn/ui",
+      "SASS/SCSS",
+      "Responsive Design",
+    ],
+    inProgress: ["Three.js"],
+  },
+  "Web APIs & Performance": {
+    icon: <FaFirefoxBrowser size={24} className="text-orange-500" />,
+    skills: [
+      "DOM Manipulation",
+      "Fetch API",
+      "Local Storage",
+      "Web Performance Optimization",
     ],
     inProgress: [],
   },
-  "Back End": {
-    icon: <FaDatabase size={24} className="text-green-500" />,
-    skills: ["Discord.js"],
-    inProgress: ["PostgreSQL", "Drizzle ORM"],
+  "Testing & Debugging": {
+    icon: <FaTools size={24} className="text-red-500" />,
+    skills: ["Chrome DevTools", "Jest", "Cypress"],
+    inProgress: ["React Testing Library"],
   },
-  DevOps: {
+  "Accessibility & SEO": {
+    icon: <IoAccessibility size={24} className="text-purple-500" />,
+    skills: ["WCAG Guidelines", "Semantic HTML"],
+    inProgress: ["ARIA", "SEO Best Practices"],
+  },
+  "Version Control & DevOps": {
     icon: <FaTools size={24} className="text-yellow-500" />,
-    skills: ["Git", "GitHub", "GitHub Actions", "Figma", "Trello"],
+    skills: ["Git", "GitHub", "GitHub Actions", "Figma", "Trello", "npm/pnpm"],
     inProgress: ["Docker"],
   },
   "Content Management": {
     icon: <FaPencilAlt size={24} className="text-pink-500" />,
     skills: ["Sanity", "Wordpress"],
     inProgress: [],
+  },
+  "Project Management": {
+    icon: <FaProjectDiagram size={24} className="text-purple-500" />,
+    skills: ["Scrum", "Agile"],
+    inProgress: [],
+  },
+  "Back End": {
+    icon: <FaDatabase size={24} className="text-green-500" />,
+    skills: ["Discord.js", "API-REST"],
+    inProgress: ["PostgreSQL", "Drizzle ORM"],
   },
 };
 
