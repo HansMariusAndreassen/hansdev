@@ -80,7 +80,7 @@ const ThreeBackground: React.FC<ThreeBackgroundProps> = ({ imageUrls }) => {
         <pointLight position={[0, 0, 0]} intensity={1} color={0x9d4edd} />
         <directionalLight position={[-1, 4, 6]} intensity={3} />
         <RotatingBox imageUrls={imageUrls} />
-        <OrbitControls enableZoom={false} enablePan={false} />
+        <OrbitControls enableZoom={false} enablePan={true} />
       </Canvas>
     </div>
   );
