@@ -19,7 +19,7 @@ export default function Hero() {
   return (
     <div className="h-screen sticky top-0 overflow-hidden">
       <ThreeBackground imageUrls={imgs} />
-      <div className="fixed inset-0 flex items-center justify-center bg-opacity-50 pointer-events-none">
+      <div className="fixed inset-0 flex items-center justify-center bg-opacity-50">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             <FadeInText
