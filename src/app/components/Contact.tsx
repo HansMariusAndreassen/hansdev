@@ -21,7 +21,7 @@ export default function ContactForm() {
     reset,
   } = useForm<Inputs>();
 
-  const myEmail = process.env.NEXT_PUBLIC_EMAIL;
+  //const myEmail = process.env.NEXT_PUBLIC_EMAIL;
 
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsSubmitting(true);
