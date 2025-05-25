@@ -26,7 +26,7 @@ export default function ContactForm() {
   const onSubmit: SubmitHandler<Inputs> = async (data) => {
     setIsSubmitting(true);
     try {
-      const response = await fetch(`https://formsubmit.co/${myEmail}`, {
+      const response = await fetch(`https://formsubmit.co/59ea6f8c81e01c38e31a950422917bd5`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
